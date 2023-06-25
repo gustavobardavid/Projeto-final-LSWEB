@@ -1,7 +1,8 @@
 const express = require('express');
+const partidasController = require('./controllers/partidasController.js');
 
 const router = express.Router();
 
-router.get('/' , (req, res) => res.status(200).send('o router tá funcionando'))
+router.get('/partidas', partidasController.getALL)
 
 module.exports = router;
