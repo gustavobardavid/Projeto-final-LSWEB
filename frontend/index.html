@@ -1,19 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <title> Rachinhas</title>
 </head>
 <body>
-    <ul id="partidas"></ul>
-    <p>Criar nova partida:</p>
-    <input type="text" id="titulo" placeholder="Digite um nome para a partida">
-    <input type="text" id="local" placeholder="Digite o local da partida">
-    <label for="date">Use o calendario para definir a data e horario</label>
-    <input type="date" id="data">
-    <button id="Marcar">Marcar</button>
-    <script src="index.js"></script>
+
+    <main>
+        <form class="add-form">
+            <input type="text" placeholder="Apelido da partida" class="input-partida">
+            <input type="text" placeholder="Local da partida" class="input-local">
+            <input type="datetime-local"placeholder="Data da partida" class="input-data">
+            <button type="submit">+</button>
+        </form>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Partida</th>
+                    <th>Local</th>
+                    <th>Data</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+             <!--    <tr>
+                    <td>Futebol</td>
+                    <td>Perpetao</td>
+                    <td>27/07</td>
+                    <td>
+                        <button class="btn-action">
+                            <span class="material-symbols-outlined">delete
+                            </span>
+                        </button>
+
+                        <button class="btn-action">
+                            <span class="material-symbols-outlined">
+                                edit_calendar
+                                </span>
+                        </button>
+                    </td>
+                </tr> -->
+            </tbody>
+        </table>
+    </main>
+    <script src="script.js"></script>
 </body>
 </html>
