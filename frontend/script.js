@@ -18,6 +18,14 @@ const addPartida = async () => {
     })
 }
 
+const deletarPartida = async (id) => {
+    await fetch(`http://localhost:3000/partidas/${id}` , {
+    method:'delete'
+    });
+    
+    carregarPartidas();
+};
+
 const fetchPartidas = async () => {
   const resposta = await fetch('http://localhost:3000/partidas');
   const partidas = await resposta.json();
@@ -37,7 +45,7 @@ function createElement (tag, textContent = '', innerHTML = '') {
 }
 
 function criarLinha(partida) {
-  const { title, local , data} = partida; 
+  const { id, title, local , data} = partida; 
   const tr = createElement('tr');
   const tdTitle = createElement('td' , title);
   const tdLocal = createElement('td' , local);  
@@ -46,6 +54,13 @@ function criarLinha(partida) {
 
   const editButton = createElement('button' , '', '<span class="material-symbols-outlined">edit_calendar</span>');
   const deleteButton = createElement('button' , '', '<span class="material-symbols-outlined">delete</span>');
+  
+  deleteButton.addEventListener('click' , ()=> {
+      
+    deletarPartida(id)
+    
+  });
+
   editButton.classList.add('btn-action');
   deleteButton.classList.add('btn-action');
   tdAções.appendChild(editButton);
@@ -58,15 +73,15 @@ function criarLinha(partida) {
   return tr;
 }
 
-async function carregarPartidas  () {
+async function carregarPartidas() {
     const partidas = await fetchPartidas();
+    tbody.replaceChildren(...[]);
     partidas.forEach(partida => {
         const tr = criarLinha(partida);
         tbody.appendChild(tr);
     });
 }
-
-
+//p
 addForm.addEventListener('submit', () => {
   addPartida();
   carregarPartidas();
