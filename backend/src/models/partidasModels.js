@@ -7,11 +7,8 @@ const getALL = async () => {
 
 const addPartida = async (partida) => {
    
-    const { title, local } = partida;
+    const { title, local, data } = partida;
 
-    //const dataUTC = new Date(data).toUTCString();
-
-    const data = new Date();
 
     const querry = 'INSERT INTO partidas (title, local, data) VALUES(?, ?, ?)';
 
