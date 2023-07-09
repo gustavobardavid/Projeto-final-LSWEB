@@ -1,0 +1,11 @@
+
+CREATE DATABASE IF NOT EXISTS partidas;
+
+USE partidas;
+
+CREATE TABLE partidas (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    title VARCHAR(45) NOT NULL,
+    local VARCHAR(45) NOT NULL,
+    data VARCHAR(45) NOT NULL
+);
